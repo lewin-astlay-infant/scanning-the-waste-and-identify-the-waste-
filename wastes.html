@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Worker Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>👷 Worker Dashboard</h1>
+    <nav>
+      <a href="worker.html">Home</a>
+      <a href="index.html">Logout</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Assigned Apartments & Streets</h2>
+      <ul id="workerTasks">
+        <li>Apartment ID: A101 – Green Avenue – Segregation pending <button onclick="markTaskComplete(this)">Complete</button></li>
+        <li>Street: MG Road – Wet waste collection <button onclick="markTaskComplete(this)">Complete</button></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Report Daily Work</h2>
+      <textarea id="workerReport" placeholder="Enter today’s segregation details..."></textarea>
+      <button onclick="submitWorkerReport()">Submit Report</button>
+    </section>
+  </main>
+
+  <script>
+    function markTaskComplete(btn) {
+      btn.parentElement.style.textDecoration = "line-through";
+      alert("Task marked complete!");
+    }
+    function submitWorkerReport() {
+      const report = document.getElementById("workerReport").value;
+      if (!report) return alert("Please enter your report");
+      alert("Report submitted successfully: " + report);
+      document.getElementById("workerReport").value = "";
+    }
+  </script>
+</body>
+</html>
